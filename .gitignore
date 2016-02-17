@@ -1,0 +1,5 @@
+*.pyc
+
+xiPy.egg-info/
+dist/
+build/
