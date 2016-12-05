@@ -100,11 +100,3 @@ License
 This library is Open Source, under the `BSD 3-Clause license`_.
 
 .. _`BSD 3-Clause license`: LICENSE.md
-
-Xively Demo Environment
------------------------
-By default xiPy connects to *Xively production* servers. Occassionally *Xively demo* environment might be the preference. To connect xiPy to Xively demo servers you need this line before calling connect:
-
-.. code:: python
-
-  XivelyConfig.XI_MQTT_HOSTS = [ ("broker.demo.xively.com", 8883, True) ]
