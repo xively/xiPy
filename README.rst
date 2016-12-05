@@ -44,7 +44,7 @@ Usage
 
 This connects client to Xively. How to get Xively credentials? See `PUB and SUB with the Python library`_.
 
-.. _`PUB and SUB with the Python library`: http://developer.xively.com/tutorials/pub-and-sub-from-python
+.. _`PUB and SUB with the Python library`: https://developer.xively.com/docs/publish-and-subscribe-with-the-python-library
 
  Set connection finished callback
 ---------------------------------
