@@ -806,6 +806,14 @@ class Client(object):
         self._out_packet_mutex.release()
         self._current_out_packet_mutex.release()
 
+        pending_bytes = 0
+
+        if self._ssl:
+            pending_bytes = self._ssl.pending()
+
+        if pending_bytes > 0:
+            timeout = 0.0
+
         # sockpairR is used to break out of select() before the timeout, on a
         # call to publish() etc.
         rlist = [self.socket(), self._sockpairR]
@@ -821,7 +829,7 @@ class Client(object):
         except:
             return MQTT_ERR_UNKNOWN
 
-        if self.socket() in socklist[0]:
+        if self.socket() in socklist[0] or pending_bytes > 0:
             rc = self.loop_read(max_packets)
             if rc or (self._ssl is None and self._sock is None):
                 return rc
